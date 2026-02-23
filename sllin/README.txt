@@ -139,8 +139,7 @@ $ ip link show dev sllin0
 
 
 # ----- Simple RTR CAN frame -----
-# Patched version of cangen
-$ cangen sllin0 -r -I 1 -n 1 -L 0
+$ cangen sllin0 -R -I 1 -n 1 -L 0
 
 # Output from candump
   sllin0    1  [0] remote request
@@ -152,7 +151,7 @@ $ cangen sllin0 -r -I 1 -n 1 -L 0
 
 
 # ----- RX_TIMEOUT -----
-$ cangen sllin0 -r -I 8 -n 1 -L 0
+$ cangen sllin0 -R -I 8 -n 1 -L 0
 
 # LIN_ERR_RX_TIMEOUT flag set -- nobody answered to our LIN header
 #  or CAN RTR frame
@@ -176,7 +175,7 @@ $ cangen sllin0 -e -I 0x848 -n 1 -L 2 -D beef
   sllin0       848  [2] BE EF
 
 # Try RTR CAN frame with ID = 8 again
-$ cangen sllin0 -r -I 8 -n 1 -L 0
+$ cangen sllin0 -R -I 8 -n 1 -L 0
 
 # Everything went better than expected
   sllin0    8  [0] remote request
